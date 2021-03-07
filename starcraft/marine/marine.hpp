@@ -2,34 +2,48 @@
 #include <string.h>
 
 
+const int DEFAULT_HP = 50;
+const int DEFAULT_DAMAGE = 5;
+const int DEFAULT_X = 0;
+const int DEFAULT_Y = 0;
+
+
 class Marine {
     public:
-        Marine() {
-            m_hp = 50;
-            m_damage = 5;
-            m_is_dead = false;
-            m_coord_x = m_coord_y = 0;
-            m_name = NULL;
-        };
+        Marine()
+            : m_hp(DEFAULT_HP),
+            m_damage(DEFAULT_DAMAGE),
+            m_is_dead(false),
+            m_coord_x(DEFAULT_X),
+            m_coord_y(DEFAULT_Y),
+            m_name(NULL) { };
 
-        Marine(int x, int y): Marine() {
-            m_coord_x = x;
-            m_coord_y = y;
-        };
+        Marine(int x, int y)
+            : m_hp(DEFAULT_HP),
+            m_damage(DEFAULT_DAMAGE),
+            m_is_dead(false),
+            m_coord_x(x),
+            m_coord_y(y),
+            m_name(NULL) { };
 
-        Marine(int x, int y, const char* name): Marine(x, y) {
+        Marine(int x, int y, const char* name)
+            : m_hp(DEFAULT_HP),
+            m_damage(DEFAULT_DAMAGE),
+            m_is_dead(false),
+            m_coord_x(x),
+            m_coord_y(y) {
             m_name = new char[strlen(name) + 1];
             strcpy(m_name, name);
         };
 
-        Marine(const Marine &marine) {
+        Marine(const Marine &marine)
+            : m_hp(DEFAULT_HP),
+            m_damage(DEFAULT_DAMAGE),
+            m_is_dead(false),
+            m_coord_x(marine.m_coord_x),
+            m_coord_y(marine.m_coord_y)
+        {
             std::cout << "Copy Constructor" << std::endl;
-            m_hp = marine.m_hp;
-            m_damage = marine.m_damage;
-            m_is_dead = false;
-            m_coord_x = marine.m_coord_x;
-            m_coord_y = marine.m_coord_y;
-            
             if (marine.m_name != NULL) {
                 m_name = new char[strlen(marine.m_name) + 1];
                 strcpy(m_name, marine.m_name);
@@ -52,7 +66,7 @@ class Marine {
     private:
         int m_hp;
         int m_coord_x, m_coord_y;
-        int m_damage;
+        int const m_damage;
         bool m_is_dead;
         char* m_name;
 };
