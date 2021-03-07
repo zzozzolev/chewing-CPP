@@ -30,12 +30,14 @@ void Marine::show_status() {
     }
 
     else {
+        std::cout << "-------show_status------" << std::endl;
         if (m_name != NULL) {
             std::cout << "name: " << m_name << std::endl;
         }
         std::cout << "hp: " << m_hp << std::endl;
         std::cout << "coord_x: " << m_coord_x << std::endl;
         std::cout << "coord_y: " << m_coord_y << std::endl;
+        std::cout << "------------------------" << std::endl;
     }
 }
 

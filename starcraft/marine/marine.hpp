@@ -22,6 +22,20 @@ class Marine {
             strcpy(m_name, name);
         };
 
+        Marine(const Marine &marine) {
+            std::cout << "Copy Constructor" << std::endl;
+            m_hp = marine.m_hp;
+            m_damage = marine.m_damage;
+            m_is_dead = false;
+            m_coord_x = marine.m_coord_x;
+            m_coord_y = marine.m_coord_y;
+            
+            if (marine.m_name != NULL) {
+                m_name = new char[strlen(marine.m_name) + 1];
+                strcpy(m_name, marine.m_name);
+            }        
+        }
+
         ~Marine() {
             std::cout << "Deconstructor" << std::endl;
             if (m_name != NULL) {
