@@ -8,7 +8,7 @@ void MyString::appendStr(char *str) {
     }
 
     for (int i = 0; i < strlen(str); ++i) {
-        newStr[getStrLen() + i] = m_str[i];
+        newStr[getStrLen() + i] = str[i];
     }
     
     m_strLen = getStrLen() + strlen(str);
