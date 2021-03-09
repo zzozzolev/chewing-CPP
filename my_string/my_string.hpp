@@ -16,6 +16,7 @@ class MyString {
             strcpy(m_str, str);
         }
 
+        char* getStr() { return m_str; };
         int getStrLen() { return m_strLen; }
 
         void appendStr(char *str);
