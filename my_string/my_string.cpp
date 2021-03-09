@@ -28,8 +28,8 @@ bool MyString::isEqual(char *str) {
     return true;
 }
 
-bool MyString::isGreater(char *str) {
-    int minLen = std::min(getStrLen(), strlen(str));
+bool MyString::isGreater(char *str) {    
+    int minLen = std::min(getStrLen(), (int)(strlen(str)));
     
     for (int i = 0; i < minLen; ++i) {
         if (m_str[i] > str[i])
